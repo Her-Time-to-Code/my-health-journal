@@ -10,7 +10,23 @@ let users = {
         'name': 'Katrina',
         'occupation': 'Software Engineer', 
         'location': 'NC', 
-        'children': true
+        'children': true, 
+        'journals' :
+        [
+            "mental-health", 
+            "emotional-health", 
+            "period-health", 
+            "physical-health", 
+            "medical-health", 
+            "relationship-health", 
+            "goals"
+
+        ], 
+        'groups': 
+        [
+            'healthy recipes', 
+            'games'
+        ]
         
     },
     'joanne' :{
@@ -19,7 +35,7 @@ let users = {
         'location': 'SC', 
         'children': true
     },
-    'greyWolfGirl' :{
+    'greywolfgirl' :{
         'name': 'Karie',
         'occupation': 'Gammer', 
         'location': 'NY', 
@@ -41,6 +57,13 @@ app.get('/', (request, response) => {
     response.sendFile(__dirname + '/index.html')
 })
 
+app.get('/api/users', (request, response) => {
+    console.log("users:", users)
+    if(users) {
+        response.json(users)
+    }
+})
+
 app.get('/api/users/:userName', (request, response) => {
     const userName = request.params.userName.toLowerCase()
     console.log(userName)
@@ -50,6 +73,6 @@ app.get('/api/users/:userName', (request, response) => {
         response.json(users['unknown'])
     }
 })
-app.listen(PORT, ()=>{
+app.listen(process.env.PORT || PORT, ()=>{
     console.log(`Server running on ${PORT}`)
 })
