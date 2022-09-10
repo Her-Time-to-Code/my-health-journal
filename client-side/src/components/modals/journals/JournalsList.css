@@ -1,0 +1,13 @@
+
+.go-to-journal {
+background-image: url('https://hertimetocode.com/wp-content/uploads/2022/09/hologram2.jpg');
+background-size: 500% 500%;
+animation: gradientBG 10s ease infinite;
+padding: 5%;
+border: 1px solid lightskyblue
+}
+@keyframes gradientBG {
+0% { background-position: 0% 50%; }
+50% { background-position: 100% 50%; }
+100% { background-position: 0% 50%; }
+}

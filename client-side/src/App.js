@@ -1,32 +1,27 @@
 
-import './App.css';
+import Home from './view/home/Home';
 
 
 
-async function getUserName() {
-  const userName = document.querySelector('input').value
-  try{
-
-    const res = await fetch(`http://localhost:5000/api/users/${userName}`)
-    const data = await res.json()
-  
-    console.log(data)
-    document.querySelector('h3').innerText = (`Name: ${data.name}`)
-  } catch(err) {
-    console.log(err)
-  }
-}
 function App() {
   
   return (
-    <div>
-      <h2> My Health Journal</h2>
-      <h3> Get users: </h3>
-      <input type="text" placeholder='find user'></input>
-      <button onClick={getUserName}>Find User</button>
-    </div> 
-      );
-    }
-    
-    export default App;
+    <Home />
+    );
+  }
   
+  export default App;
+  
+  // <div className='container'>
+  //   <div className='row'>
+  //   <header className='header text-center'>
+  //     <h1><strong>COMPLETE HEALTH JOURNAL</strong></h1>
+  //     <h2><strong>Keep track of your</strong></h2>
+  //     <h2 className='rotating-text'><span></span></h2>
+  //     <h2><strong> health in one place.</strong></h2>
+  //   </header>
+  //   <section className='text-center'>
+  //     <button className='btn btn-primary'>Get started</button> 
+  //   </section>
+  //     </div>
+  // </div> 
